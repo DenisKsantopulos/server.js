@@ -1,7 +1,7 @@
 let a=30;
 let b=10;
 console.log(`${a} км ч соответствует ${a/3.6} мс `)
-console.log(`${b} км ч соответствует ${b/3.6} мс `)
+console.log(`${b} mc соответствует ${b*3.6} км ч `)
 
 
 a=10;
@@ -18,8 +18,11 @@ if ((a+b)>c && (a+c)>b && (c+b)>a){
     console.log('Not exist')
 }
 
-/* let n;
+
 result = prompt("Write num",'');
+if (isNaN(result)){
+    alert("Это не цифра :( Попробуйте снова.")
+}
 for(let i=1;i<=result;i++){
     if(i%2==0){
         console.log(`${i} buzz`)
@@ -30,7 +33,7 @@ for(let i=1;i<=result;i++){
     if(i%5==0){
         console.log(`${i} fizz buzz`)
     }
-} */
+}
 
 for (let i=1;i<=10;i++){
     if((i%2)==0){
@@ -46,7 +49,9 @@ console.log("||");
 
 
 result = prompt("Write num",'');
-
+if (isNaN(result)){
+            alert("Это не цифра :( Попробуйте снова.")
+}
 while(result!=q){
     if(result>q){
         console.log("Больше")
@@ -86,5 +91,6 @@ if (mounth<=9 && mounth>6){
 if (mounth<=12 && mounth>9){
     console.log(`месяц ${mounth} => 4 квартал`)
 }
+
 
 
