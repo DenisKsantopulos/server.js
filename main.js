@@ -1,8 +1,12 @@
+// ############ 1
+
+
 let a=30;
 let b=10;
 console.log(`${a} км ч соответствует ${a/3.6} мс `)
 console.log(`${b} mc соответствует ${b*3.6} км ч `)
 
+// ############ 2
 
 a=10;
 b=5;
@@ -18,12 +22,15 @@ if ((a+b)>c && (a+c)>b && (c+b)>a){
     console.log('Not exist')
 }
 
+// ############ 3
+
 
 result = prompt("Write num",'');
 if (isNaN(result)){
     alert("Это не цифра :( Попробуйте снова.")
 }
-for(let i=1;i<=result;i++){
+else{
+    for(let i=1;i<=result;i++){
     if(i%2==0){
         console.log(`${i} buzz`)
     }
@@ -34,23 +41,91 @@ for(let i=1;i<=result;i++){
         console.log(`${i} fizz buzz`)
     }
 }
+}
+
+
+// ############ 4
+
 
 for (let i=1;i<=10;i++){
-    if((i%2)==0){
+    console.log("*".repeat(i),"\n","#".repeat(i+1))
+}
+console.log("||");
+
+/* if((i%2)==0){
         console.log("#".repeat(i))
     }
     else{
         console.log("*".repeat(i))
-    }
-}
-console.log("||");
+    } */
 
-/* let q=10;
 
+// ############ 5
+
+
+let q=10;
 
 result = prompt("Write num",'');
 if (isNaN(result)){
             alert("Это не цифра :( Попробуйте снова.")
+}
+if((result==q)){
+    console.log("угадано")
+} 
+else{
+    while(result!=q){
+        if(result>q){
+            console.log("Больше")
+        }
+        else{
+            console.log("меньше")
+        }
+        result = prompt("Write num",'');
+
+        if (isNaN(result)){
+            alert("Это не цифра :( Попробуйте снова.")
+            break
+        }
+        if((result==q)){
+            console.log("угадано")
+            break
+        } 
+    }
+}
+
+/* result = prompt("Write num",'');
+if (isNaN(result)){
+            alert("Это не цифра :( Попробуйте снова.")
+}
+else{
+    do{
+        result = prompt("Write num",'');
+        
+        if((result==q)){
+            console.log("угадано")
+        }
+        if (isNaN(result)){
+            alert("Это не цифра :( Попробуйте снова.")
+            break
+        }
+    }
+    while(result!=q){
+        if(result>q){
+            console.log("Больше")
+        }
+        else{
+            console.log("меньше")
+        }
+    }
+} */
+
+
+/* do{
+    result = prompt("Write num",'');
+    
+    if((result==q)){
+        console.log("угадано")
+    }
 }
 while(result!=q){
     if(result>q){
@@ -60,12 +135,15 @@ while(result!=q){
         console.log("меньше")
     }
     result = prompt("Write num",'');
+    
 
-}
-
-if((result==q)){
-    console.log("угадано")
 } */
+
+/* if((result==q)){
+    console.log("угадано")
+}  */
+
+// ############ 6
 
 
 let n=3;
@@ -77,6 +155,12 @@ if ((n%x)==0 && ((n%y)==0)){
 else{
     console.log(`n = ${n} , x = ${x} , y = ${y} => false`)
 }
+
+
+
+// ############ 7
+
+
 
 let mounth=5;
 if (mounth<=3){
