@@ -52,17 +52,6 @@ for (let i=1;i<=10;i++){
 }
 console.log("||");
 
-/* if((i%2)==0){
-        console.log("#".repeat(i))
-    }
-    else{
-        console.log("*".repeat(i))
-    } */
-
-
-// ############ 5
-
-
 let q=10;
 
 result = prompt("Write num",'');
@@ -93,55 +82,6 @@ else{
     }
 }
 
-/* result = prompt("Write num",'');
-if (isNaN(result)){
-            alert("Это не цифра :( Попробуйте снова.")
-}
-else{
-    do{
-        result = prompt("Write num",'');
-        
-        if((result==q)){
-            console.log("угадано")
-        }
-        if (isNaN(result)){
-            alert("Это не цифра :( Попробуйте снова.")
-            break
-        }
-    }
-    while(result!=q){
-        if(result>q){
-            console.log("Больше")
-        }
-        else{
-            console.log("меньше")
-        }
-    }
-} */
-
-
-/* do{
-    result = prompt("Write num",'');
-    
-    if((result==q)){
-        console.log("угадано")
-    }
-}
-while(result!=q){
-    if(result>q){
-        console.log("Больше")
-    }
-    else{
-        console.log("меньше")
-    }
-    result = prompt("Write num",'');
-    
-
-} */
-
-/* if((result==q)){
-    console.log("угадано")
-}  */
 
 // ############ 6
 
