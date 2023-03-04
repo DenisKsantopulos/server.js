@@ -1,120 +1,59 @@
-// ############ 1
+// ####### 1
 
-
-let a=30;
+let a=36;
 let b=10;
-console.log(`${a} км ч соответствует ${a/3.6} мс `)
-console.log(`${b} mc соответствует ${b*3.6} км ч `)
-
-// ############ 2
-
-a=10;
-b=5;
-let c=12;
-let P=a+b+c;
-
-if ((a+b)>c && (a+c)>b && (c+b)>a){
-    console.log('Exist')
-    console.log(`Per= ${a+b+c}`)
-    console.log(`Plosh= ${Math.sqrt(P*(P-a)*(P-b)*(P-c))}`)
-    console.log(`Sootn= ${P/Math.sqrt(P*(P-a)*(P-b)*(P-c))}`)
-}else{
-    console.log('Not exist')
-}
-
-// ############ 3
-
-
-result = prompt("Write num",'');
-if (isNaN(result)){
-    alert("Это не цифра :( Попробуйте снова.")
-}
-else{
-    for(let i=1;i<=result;i++){
-    if(i%2==0){
-        console.log(`${i} buzz`)
+function convertSpeed(a,b){
+    if (b==1){
+        return a/3.6;
     }
-    if(i%2!=0){
-        console.log(`${i} fizz`)
-    }
-    if(i%5==0){
-        console.log(`${i} fizz buzz`)
+    else{
+        return a*3.6;
     }
 }
-}
+let c=convertSpeed(a,b);
 
+console.log(`36  -> ${c}`)
 
-// ############ 4
+//####### 2
 
-
-for (let i=1;i<=10;i++){
-    console.log("*".repeat(i),"\n","#".repeat(i+1))
-}
-console.log("||");
-
-let q=10;
-
-result = prompt("Write num",'');
-if (isNaN(result)){
-            alert("Это не цифра :( Попробуйте снова.")
-}
-if((result==q)){
-    console.log("угадано")
-} 
-else{
-    while(result!=q){
-        if(result>q){
-            console.log("Больше")
-        }
-        else{
-            console.log("меньше")
-        }
-        result = prompt("Write num",'');
-
-        if (isNaN(result)){
-            alert("Это не цифра :( Попробуйте снова.")
-            break
-        }
-        if((result==q)){
-            console.log("угадано")
-            break
-        } 
+function absValue(n){
+    if(n<0){
+        return n*(-1)
+    }
+    else{
+        return n;
     }
 }
+console.log(absValue(-10)
+)
 
+//######## 3
 
-// ############ 6
+let student = {
+    group: 201,
+    last_name: "Иванов",
+    first_name: "Иван"
+    };
 
+console.log(`Студент ${student.last_name} ${student.first_name} учится в ${student.group} группе`)
 
-let n=3;
-let x=1;
-let y=3;
-if ((n%x)==0 && ((n%y)==0)){
-    console.log(`n = ${n} , x = ${x} , y = ${y} => true`)
+//######## 4
+
+function rand(min,max){
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
 }
-else{
-    console.log(`n = ${n} , x = ${x} , y = ${y} => false`)
+console.log(rand(10,20))
+
+// ######## 5
+
+let arr=[1,2,3,4,5,6,7,8,9,11]
+let ar=[0,0,0]
+
+let n=2;
+
+for (let i=0;i<=n;i++){
+    r=rand(0,arr.length-1)
+    ar[i]=r
 }
-
-
-
-// ############ 7
-
-
-
-let mounth=5;
-if (mounth<=3){
-    console.log(`месяц ${mounth} => 1 квартал`)
-}
-if (mounth<=6 && mounth>3){
-    console.log(`месяц ${mounth} => 2 квартал`)
-}
-if (mounth<=9 && mounth>6){
-    console.log(`месяц ${mounth} => 3 квартал`)
-}
-if (mounth<=12 && mounth>9){
-    console.log(`месяц ${mounth} => 4 квартал`)
-}
-
-
-
+console.log(ar[0],ar[1],ar[2])
