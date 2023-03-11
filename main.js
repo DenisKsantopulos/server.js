@@ -48,7 +48,7 @@ console.log(rand(10,20))
 // ######## 5
 
 let arr=[1,2,3,4,5,6,7,8,9,11]
-let ar=[0,0,0]
+let ar=[]
 
 let n=2;
 
@@ -56,4 +56,7 @@ for (let i=0;i<=n;i++){
     r=rand(0,arr.length-1)
     ar[i]=r
 }
-console.log(ar[0],ar[1],ar[2])
+for (let i=0;i<=n;i++){
+    console.log(ar[i])
+}
+/* console.log(ar[0],ar[1],ar[2]) */
