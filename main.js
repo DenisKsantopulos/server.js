@@ -34,7 +34,7 @@ let student = {
     last_name: "Иванов",
     first_name: "Иван"
     };
-
+console.log(`Студент ${Object.keys(student)}`)
 console.log(`Студент ${student.last_name} ${student.first_name} учится в ${student.group} группе`)
 
 //######## 4
@@ -47,23 +47,13 @@ console.log(rand(10,20))
 
 // ######## 5
 
-let arr=[1,2,3,4,5,6,7,8,9,11]
-let ar=[]
-
-
-function mass(){
-    let n=2;
+function mass(arr,n){
+    let ar=[];
     for (let i=0;i<=n;i++){
-        r=rand(0,arr.length-1)
-        ar[i]=r
+        r=rand(0,arr.length-1);
+        ar[i]=r;
     }
-    return ar
+    return ar;
 }
-/* for (let i=0;i<=n;i++){
-    r=rand(0,arr.length-1)
-    ar[i]=r
-}
-for (let i=0;i<=n;i++){
-    console.log(ar[i])
-} */
-console.log(mass())
+
+console.log(mass([1,2,3,4,5,6,7,8,9,11],2))
