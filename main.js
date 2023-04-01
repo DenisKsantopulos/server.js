@@ -1,59 +1,111 @@
-// ####### 1
+var modal=document.getElementById("myModal");
+var btn=document.getElementById("myBtn");
+var span=document.getElementsByClassName("close")[0];
+/* var input = document.getElementById('password-input');
+var see = document.getElementById('passwordcontrol'); */
+const see = document.querySelector('.passwordcontrol');
+const pinput = document.querySelector('#password-input');
 
-let a=36;
-let b=10;
-function convertSpeed(a,b){
-    if (b==1){
-        return a/3.6;
-    }
-    else{
-        return a*3.6;
+btn.onclick=function(){
+    modal.style.display="block";
+}
+span.onclick=function(){
+    modal.style.display="none";
+}
+window.onclick=function(event){
+    if (event.target==modal){
+        modal.style.display="none";
     }
 }
-let c=convertSpeed(a,b);
 
-console.log(`36  -> ${c}`)
+/* function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+} */
 
-//####### 2
 
-function absValue(n){
-    if(n<0){
-        return n*(-1)
-    }
-    else{
-        return n;
-    }
-}
-console.log(absValue(-10)
-)
 
-//######## 3
+see.addEventListener('pointerdown', () => {
+  pinput.setAttribute('type', 'text');
+});
 
-let student = {
-    group: 201,
-    last_name: "Иванов",
-    first_name: "Иван"
-    };
-console.log(`Свойства ${Object.keys(student)}`)
-console.log(`Студент ${student.last_name} ${student.first_name} учится в ${student.group} группе`)
+see.addEventListener('pointerup', () => {
+    pinput.setAttribute('type', 'password');
+});
 
-//######## 4
+const formElement = document.getElementById('form1'); // извлекаем элемент формы
+formElement.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+  // теперь можно извлечь данные
+  const name = formData.get('name'); 
+  const surname = formData.get('password');
+  console.log(name,surname)
+  /* modal.style.display="none"; */
+});
 
-function rand(min,max){
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-}
-console.log(rand(10,20))
 
-// ######## 5
 
-function mass(arr,n){
-    let ar=[];
-    for (let i=0;i<=n;i++){
-        r=rand(0,arr.length-1);
-        ar[i]=arr[r];
-    }
-    return ar;
-}
 
-console.log(mass([1,"a","b",2,3,"c"],2))
+/* name1.onblur = function() {
+  if (!name1.value.includes('@')) { // не email
+    name1.classList.add('invalid');
+    error.innerHTML = 'Пожалуйста, введите правильный email.'
+  }
+};
+
+name1.onfocus = function() {
+  if (this.classList.contains('invalid')) {
+    // удаляем индикатор ошибки, т.к. пользователь хочет ввести данные заново
+    this.classList.remove('invalid');
+    error.innerHTML = "";
+  }
+}; */
+
+
+var mis=document.getElementById("mis");
+var mis2=document.getElementById("mis2");
+
+function validate(){
+	var x=document.getElementById('name1').value
+	var y=document.getElementById('password-input').value
+
+  at=x.indexOf("@");
+  dot=x.indexOf(".");
+   if (at<1 || dot <1){
+      mis.style.display="block";
+      return false;
+   }
+   if (at>=1 || dot >=1){
+    mis.style.display="none";
+ }
+	console.log(y.length)
+	if (x.length==0){
+		mis.style.display="block";
+	    return false;
+	}
+  if (x.length>0){
+		mis.style.display="none";
+	}
+  if (y.length<6){
+		mis2.style.display="block";
+	    return false;
+	}
+  if (y.length>=6){
+		mis2.style.display="none";
+
+	}
+  
+  if (y.length>=6 && x.length>0 && (at>=1 || dot >=1)){
+    modal.style.display="none";
+    	return false;
+	}
+
+ }
