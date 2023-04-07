@@ -21,57 +21,6 @@ window.onclick=function(event){
 var mis=document.getElementById("mis");
 var mis2=document.getElementById("mis2");
 
-/* function validate(){
-	var x=document.getElementById('name1').value
-	var y=document.getElementById('password-input').value
-
-  at=x.indexOf("@");
-  dot=x.indexOf(".");
-   if (at<1 || dot <1){
-      mis.style.display="block";
-      return false;
-   }
-   if (at>=1 || dot >=1){
-    mis.style.display="none";
- }
-	console.log(y.length)
-	if (x.length==0){
-		mis.style.display="block";
-	    return false;
-	}
-  if (x.length>0){
-		mis.style.display="none";
-	}
-  if (y.length<6){
-		mis2.style.display="block";
-	    return false;
-	}
-  if (y.length>=6){
-		mis2.style.display="none";
-
-	}
-  
-  if (y.length>=6 && x.length>0 && (at>=1 || dot >=1)){
-    modal.style.display="none";
-    	return false;
-	}
-
- }
- */
-
-/* function show_hide_password(target){
-	var input = document.getElementById('password-input');
-	if (input.getAttribute('type') == 'password') {
-		target.classList.add('view');
-		input.setAttribute('type', 'text');
-	} else {
-		target.classList.remove('view');
-		input.setAttribute('type', 'password');
-	}
-	return false;
-} */
-
-
 
 see.addEventListener('pointerdown', () => {
   pinput.setAttribute('type', 'text');
@@ -81,7 +30,7 @@ see.addEventListener('pointerup', () => {
     pinput.setAttribute('type', 'password');
 });
 
- var n=0;
+ 
  const einput = document.querySelector('#name1'); 
  const form = document.querySelector("#form1");
 
@@ -92,12 +41,12 @@ see.addEventListener('pointerup', () => {
   if(event.target == einput && !isValid )
   {
     einput.setCustomValidity('Введите правльный email(abc@de.com)');
-    n=1;
+    
   }
   if(event.target == pinput && !isValid)
   {
-    pinput.setCustomValidity('Пароль должен быть больше 5');
-    n=1;
+    pinput.setCustomValidity('Пароль должен быть больше 6');
+  
   }
 
   const message = event.target.validationMessage;
@@ -108,22 +57,31 @@ see.addEventListener('pointerup', () => {
     connectedValidation.innerText = message;
   } else {
     connectedValidation.innerText = '';
-
+    
   }
   einput.setCustomValidity('');
   pinput.setCustomValidity('');
 }, true);
 
 
-const formElement = document.getElementById('form1'); // извлекаем элемент формы
+const formElement = document.getElementById('form1'); 
 formElement.addEventListener('submit', (e) => {
-  if (n==1){
-    e.preventDefault();
-    const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
-    // теперь можно извлечь данные
-    const name = formData.get('name'); 
-    const surname = formData.get('password');
-    console.log(name,surname)
-    /* modal.style.display="none"; */
+  e.preventDefault();
+  n=0;
+  const isEmailValid = einput.validity.valid;
+  const isPassValid = pinput.validity.valid;
+
+    if(!isEmailValid || !isPassValid){
+      n=1;
+    }
+    else{
+      n=0;
+    }
+    if (n==0){
+      const formData = new FormData(formElement); 
+      const mail = formData.get('name'); 
+      const password = formData.get('password');
+      console.log(mail,password)
+      modal.style.display="none"; 
   }
 });
