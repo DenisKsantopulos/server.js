@@ -12,19 +12,21 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <form action="#" id="form1" name="contact" method="post" onsubmit="return validate()" novalidate>
+      <form action="#" id="form1" name="contact" method="post" novalidate>
 
         <div class="name">
-          <input type="text" id="name1" required placeholder="Email" name="name" >
+          <input type="email" id="name1" placeholder="Email" name="name" aria-describedby="email-validation" required >
+          <span id="email-validation" aria-live="assertive" class="validation-message"></span>
         </div>
-
+       
         <div class="password">
-          <input type="password" id="password-input" required placeholder="Введите пароль" name="password" required minlength="6">
+          <input type="password" id="password-input" placeholder="Введите пароль" name="password" required minlength="6" aria-describedby="password-validation" required>
           <a href="#" class="passwordcontrol" ></a>
+          <span id="password-validation" aria-live="assertive" class="validation-message"></span>
           <!-- onclick="return show_hide_password(this);" в конце ссылки -->
         </div>
-        <p id="mis" class="mis">Почта должно быть длинее 0 и содержать @ & .</p>
-        <p id="mis2" class="mis2">Пароль должен быть минимум 6 символов</p>
+        <!-- <p id="mis" class="mis">Почта должно быть длинее 0 и содержать @ & .</p>
+        <p id="mis2" class="mis2">Пароль должен быть минимум 6 символов</p> -->
 
         <button class="button" style="max-width: 100%; margin-top: 20px;margin: 15px auto;" type="submit">
           Отправить
@@ -32,6 +34,8 @@
 
     </div>
   </div>
+  
   <script src="main.js"></script>
+  
 </body>
 </html>

@@ -18,62 +18,10 @@ window.onclick=function(event){
     }
 }
 
-/* function show_hide_password(target){
-	var input = document.getElementById('password-input');
-	if (input.getAttribute('type') == 'password') {
-		target.classList.add('view');
-		input.setAttribute('type', 'text');
-	} else {
-		target.classList.remove('view');
-		input.setAttribute('type', 'password');
-	}
-	return false;
-} */
-
-
-
-see.addEventListener('pointerdown', () => {
-  pinput.setAttribute('type', 'text');
-});
-
-see.addEventListener('pointerup', () => {
-    pinput.setAttribute('type', 'password');
-});
-
-const formElement = document.getElementById('form1'); // извлекаем элемент формы
-formElement.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
-  // теперь можно извлечь данные
-  const name = formData.get('name'); 
-  const surname = formData.get('password');
-  console.log(name,surname)
-  /* modal.style.display="none"; */
-});
-
-
-
-
-/* name1.onblur = function() {
-  if (!name1.value.includes('@')) { // не email
-    name1.classList.add('invalid');
-    error.innerHTML = 'Пожалуйста, введите правильный email.'
-  }
-};
-
-name1.onfocus = function() {
-  if (this.classList.contains('invalid')) {
-    // удаляем индикатор ошибки, т.к. пользователь хочет ввести данные заново
-    this.classList.remove('invalid');
-    error.innerHTML = "";
-  }
-}; */
-
-
 var mis=document.getElementById("mis");
 var mis2=document.getElementById("mis2");
 
-function validate(){
+/* function validate(){
 	var x=document.getElementById('name1').value
 	var y=document.getElementById('password-input').value
 
@@ -109,3 +57,73 @@ function validate(){
 	}
 
  }
+ */
+
+/* function show_hide_password(target){
+	var input = document.getElementById('password-input');
+	if (input.getAttribute('type') == 'password') {
+		target.classList.add('view');
+		input.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		input.setAttribute('type', 'password');
+	}
+	return false;
+} */
+
+
+
+see.addEventListener('pointerdown', () => {
+  pinput.setAttribute('type', 'text');
+});
+
+see.addEventListener('pointerup', () => {
+    pinput.setAttribute('type', 'password');
+});
+
+ var n=0;
+ const einput = document.querySelector('#name1'); 
+ const form = document.querySelector("#form1");
+
+
+ form.addEventListener('blur', function (event) {
+  const isValid = event.target.validity.valid;
+  
+  if(event.target == einput && !isValid )
+  {
+    einput.setCustomValidity('Введите правльный email(abc@de.com)');
+    n=1;
+  }
+  if(event.target == pinput && !isValid)
+  {
+    pinput.setCustomValidity('Пароль должен быть больше 5');
+    n=1;
+  }
+
+  const message = event.target.validationMessage;
+  const connectedValidationId = event.target.getAttribute('aria-describedby');
+  const connectedValidation = connectedValidationId ? document.getElementById(connectedValidationId) : false;
+
+  if (connectedValidation && message && !isValid) { 
+    connectedValidation.innerText = message;
+  } else {
+    connectedValidation.innerText = '';
+
+  }
+  einput.setCustomValidity('');
+  pinput.setCustomValidity('');
+}, true);
+
+
+const formElement = document.getElementById('form1'); // извлекаем элемент формы
+formElement.addEventListener('submit', (e) => {
+  if (n==1){
+    e.preventDefault();
+    const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+    // теперь можно извлечь данные
+    const name = formData.get('name'); 
+    const surname = formData.get('password');
+    console.log(name,surname)
+    /* modal.style.display="none"; */
+  }
+});
