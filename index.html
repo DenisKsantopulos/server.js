@@ -8,31 +8,14 @@
     <title>Document</title> 
 </head>
 <body>
-  <button id="myBtn">form</button>
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <form action="#" id="form1" name="contact" method="post" novalidate>
-
-        <div class="name">
-          <input type="email" id="name1" placeholder="Email" name="name" aria-describedby="email-validation" required >
-          <span id="email-validation" aria-live="assertive" class="validation-message"></span>
-        </div>
-       
-        <div class="password">
-          <input type="password" id="password-input" placeholder="Введите пароль" name="password" required minlength="6" aria-describedby="password-validation" required>
-          <a href="#" class="passwordcontrol" ></a>
-          <span id="password-validation" aria-live="assertive" class="validation-message"></span>
-        </div>
-
-        <button class="button" style="max-width: 100%; margin-top: 20px;margin: 15px auto;" type="submit">
-          Отправить
-        </button>
-
-    </div>
+  <div>
+    <h2>Choose color</h2>
+    <input type="radio" id="r1" name="c" >red<br>
+    <input type="radio" id="r2" name="c">green<br>
+    <input type="radio" id="r3" name="c">blue<br>
+    <input type="checkbox" id="one" checked> Свет вкл/выкл
   </div>
-  
-  <script src="main.js"></script>
-  
+
+  <script src="main.js" type="module"></script>
 </body>
 </html>
