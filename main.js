@@ -6,6 +6,16 @@ const host='127.0.0.1';
 let k=0;
 const stats = {};
 
+const data = JSON.stringify([
+  {
+      "//first_comment":  "The first JSON comment.",
+      "//second_comment": "The second JSON comment."
+  }
+  
+]) 
+
+let parrse = JSON.parse(data);
+
 const server = http.createServer((req,res)=>{
     console.log('Server request');   
     console.log(`listening port ${PORT}`);
@@ -35,6 +45,7 @@ const server = http.createServer((req,res)=>{
         res.setHeader('Content-Type','application/json')
         let body = '';
 
+
         req.on('data', (chunk) => {
           body += chunk.toString();
         });
@@ -42,17 +53,11 @@ const server = http.createServer((req,res)=>{
         req.on('end', () => {
           const comment = JSON.parse(body);
           console.log('New comment:', comment);
-          res.end('Comment added successfully');
+          parrse.push(comment);
+          let dd = JSON.stringify(parrse);
+          res.end(dd);
         });
-        const data = JSON.stringify([
-        {
-            "//first_comment":  "The first JSON comment.",
-            "//second_comment": "The second JSON comment."
-        }
-        
-    ]) 
     
-    res.end(data);
     }
     if (req.method!='POST' && req.method!='GET'){
       console.log('Error 404');
