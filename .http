@@ -3,8 +3,8 @@ Host: 127.0.0.1:3000
 Content-Type: application/json
 
 {
-  "name": "ddddd",
-  "email": "john@example.com",
+  "name": "Den",
+  "email": "joffffhn@example.com",
   "comment": "This is a test comment"
 }
  
