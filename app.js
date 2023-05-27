@@ -10,6 +10,28 @@ const host='127.0.0.1';
 
 const bodyParser = require('body-parser');
 
+
+function validateInput(req, res, next) {
+  const { input } = req.body;
+  if (!input) {
+    return res.status(400).json({ error: 'Input is required' });
+  }
+  next();
+}
+
+function authenticateApiKey(req, res, next) {
+  const apiKey = req.query.apiKey;
+  if (!apiKey || apiKey !== process.env.API_KEY) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  next();
+}
+
+function notFound(req, res, next) {
+  res.status(404).json({ error: 'Not found' });
+}
+
+
 // глобальная переменная для хранения комментариев
 let comments = [];
 
@@ -46,26 +68,6 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 app.use(helmet());
 
 
-
-function validateInput(req, res, next) {
-  const { input } = req.body;
-  if (!input) {
-    return res.status(400).json({ error: 'Input is required' });
-  }
-  next();
-}
-
-function authenticateApiKey(req, res, next) {
-  const apiKey = req.query.apiKey;
-  if (!apiKey || apiKey !== process.env.API_KEY) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-  next();
-}
-
-function notFound(req, res, next) {
-  res.status(404).json({ error: 'Not found' });
-}
 
 app.get('/', (req,res) =>{
     res.send('Hello world');

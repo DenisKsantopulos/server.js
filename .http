@@ -1,10 +1,6 @@
-POST /comments HTTP/1.1
-Host: 127.0.0.1:3000
+POST http://localhost:3000/comments
 Content-Type: application/json
 
 {
-  "name": "Den",
-  "email": "joffffhn@example.com",
-  "comment": "This is a test comment"
+  "text": "New comment"
 }
- 
