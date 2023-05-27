@@ -15,14 +15,12 @@ app.use('/api', require('./api'));
 
 app.use(express.static('public'));
 
-
 app.listen(PORT,host,(error)=>{
   error ? console.log(error) : console.log(`Listening port ${PORT}`);
 });
 
-
 app.use((req,res) => {
     res
         .status(400)
-        .send('Error');
+        .send('Error 400');
 });
