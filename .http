@@ -1,6 +1,16 @@
-POST http://localhost:3000/api/v1.0/comments
+//POST http://localhost:3000/api/v2.0/services
+//Content-Type: application/json
+
+//{
+//  "name": "sdfsdf"
+//}
+
+# POST /comments
+POST http://localhost:3000/comments
+
 Content-Type: application/json
 
 {
-  "name": "denis"
+  "name": "John",
+  "text": "This is a new comment"
 }

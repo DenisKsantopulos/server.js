@@ -42,7 +42,6 @@ function validateComment(req, res,next) {
     return res.status(400).send('Comment cannot be empty');
   }
   
-  req.body.comment = name; // Записываем отредактированный комментарий в объект запроса
   next();
   
 }
