@@ -1,4 +1,5 @@
 const { getComments, getCommentById, addComment } = require('../services/comments');
+const userService = require('../services/comments');
 
 async function getAllComments(req, res) {
   try {
@@ -9,7 +10,7 @@ async function getAllComments(req, res) {
   }
 }
 
-async function getComment(req, res) {
+async function getOneComment(req, res) {
   try {
     const id = req.params.id;
     const comment = await getCommentById(id);
@@ -20,15 +21,17 @@ async function getComment(req, res) {
 }
 
 async function createComment(req, res,next) {
-  const { name, text } = req.body;
+  const { name, comment } = req.body;
+
+
   let comm = {};
   comm.name = name;
-  comm.text = text;
+  comm.comment = comment;
   comm.createdAt = new Date();
-  await addComment(comm)
+  await userService.addComment(comm);
 }
 
-module.exports = { getAllComments, getComment, createComment };
+module.exports = { getAllComments, getOneComment, createComment };
 
 /* if (!name || !text) {
       throw new Error('Name and text are required');
